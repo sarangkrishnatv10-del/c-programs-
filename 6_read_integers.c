@@ -1,24 +1,32 @@
 #include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string.h>
 
-int main() {
-    int arr[1000];
-    int count = 0;
-    int num;
-    
-    printf("Read Integer Series (Enter blank line to end):\n");
-    printf("Enter integers (one per line):\n");
-    
-    while (scanf("%d", &num) == 1) {
-        arr[count] = num;
-        count++;
+void main() {
+    char input[20];
+    int arr[100];
+    int i = 0, j;
+
+    clrscr();
+
+    printf("Enter numbers (press Enter without typing to stop):\n");
+
+    while (1) {
+        gets(input);          // Turbo C supports gets()
+
+        if (strlen(input) == 0) {
+            break;            // Stop when Enter is pressed
+        }
+
+        arr[i] = atoi(input); // Convert string to integer
+        i++;
     }
-    
-    printf("\nArray of numbers:\n");
-    for (int i = 0; i < count; i++) {
-        printf("%d ", arr[i]);
+
+    printf("\nYou entered:\n");
+    for (j = 0; j < i; j++) {
+        printf("%d ", arr[j]);
     }
-    printf("\n");
-    printf("Total numbers entered: %d\n", count);
-    
-    return 0;
+
+    getch();
 }
