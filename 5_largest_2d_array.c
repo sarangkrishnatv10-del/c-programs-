@@ -1,41 +1,34 @@
-#include <stdio.h>
-
-int findLargest(int arr[][100], int m, int n) {
-    int largest = arr[0][0];
-    
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            if (arr[i][j] > largest) {
-                largest = arr[i][j];
-            }
-        }
-    }
-    
-    return largest;
+#include<stdio.h> 
+#include<conio.h> 
+void main() { 
+int i,j,r,c,a[100][100],lar=0; 
+clrscr(); 
+printf("Enter the number of rows :"); 
+scanf("%d",&r); 
+printf("enter the number of columns :"); 
+scanf("%d",&c); 
+printf("Enter each numbers :"); 
+for(i=0;i<=r;i++){ 
+for(j=0;j<=c;j++) { 
+printf("[%d][%d]",i,j); 
+scanf("%d",&a[i][j]); 
+} 
+} 
+for(i=0;i<=r;i++){ 
+for(j=0;j<=c;j++){ 
+printf("%d \t",a[i][j]); 
+} 
+printf("\n\n"); 
+} 
+for(i=0;i<=r;i++){ 
+for(j=0;j<=c;j++){ 
+if(a[i][j] > lar){ 
+lar= a[i][j]; 
+} 
+} 
+} 
+printf("The largest here is : %d",lar); 
+getch(); 
 }
-
-int main() {
-    int m, n;
-    
-    printf("Find Largest Number in 2D Array\n");
-    printf("Enter number of rows: ");
-    scanf("%d", &m);
-    printf("Enter number of columns: ");
-    scanf("%d", &n);
-    
-    int arr[100][100];
-    
-    printf("Enter the elements:\n");
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            printf("Element [%d][%d]: ", i, j);
-            scanf("%d", &arr[i][j]);
-        }
-    }
-    
-    int largest = findLargest(arr, m, n);
-    
-    printf("The largest number in the array is: %d\n", largest);
-    
     return 0;
 }
